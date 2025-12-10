@@ -61,12 +61,30 @@ The project uses VS Code's Java extension for compilation. The compiled output i
 
 ### Running the Application
 ```bash
+# Without external dependencies
 java -cp bin App
+
+# With external dependencies (Unix/macOS)
+java -cp bin:lib/* App
+
+# With external dependencies (Windows)
+java -cp bin;lib/* App
 ```
 
 ### Adding Dependencies
 1. Place JAR files in the `lib` directory
 2. The `.vscode/settings.json` is configured to include all JAR files from `lib/**/*.jar`
+
+Example `.vscode/settings.json`:
+```json
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
+```
 
 ## When Generating Code
 
